@@ -3,6 +3,8 @@ project(TRender)
 
 include_directories("${PROJECT_SOURCE_DIR}/RenderCore")
 
+set(CMAKE_MACOSX_RPATH 1)
+
 option(GLFW_BUILD_DOCS OFF)
 option(GLFW_BUILD_EXAMPLES OFF)
 option(GLFW_BUILD_TESTS OFF)

@@ -1,11 +1,17 @@
 project(TRender)
 
-set(DIR_LIB_SRCS "./")
-file (GLOB_RECURSE  SOURCES 
-                    "${DIR_LIB_SRCS}/*.h"
-					"${DIR_LIB_SRCS}/*.cpp"
-					)
-add_library (RenderCore ${SOURCES})
+set(DIR_LIB_GRAPHICS "./Graphics")
+set(DIR_LIB_MATHS "./Maths")
+
+include_directories(DIR_LIB_GRAPHICS)
+include_directories(DIR_LIB_MATHS)
+
+set(DIR_LIB_SRCS 
+		${DIR_LIB_GRAPHICS},
+		${DIR_LIB_MATHS}
+		)
+file (GLOB_RECURSE  DIR_LIB_SRCS *.cpp *.cc *.c *.h *.hpp)
+add_library (RenderCore ${DIR_LIB_SRCS})
 
 target_link_libraries(RenderCore PRIVATE glfw)
 target_link_libraries(RenderCore PRIVATE libglew_static)
