@@ -6,6 +6,8 @@ namespace TRender {
         struct vec2 {
             float x, y;
             vec2();
+            vec2(float x, float y);
+            vec2(float scalar);
         };
     }
 }
