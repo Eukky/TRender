@@ -1,5 +1,5 @@
-#ifndef _TINYRENDER_GRAPHICS_WINDOW_
-#define _TINYRENDER_GRAPHICS_WINDOW_
+#ifndef _TINYRENDER_GRAPHICS_WINDOW_H_
+#define _TINYRENDER_GRAPHICS_WINDOW_H_
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -26,4 +26,4 @@ namespace TRender {
     }
 }
 
-#endif // _TINYRENDER_GRAPHICS_WINDOW_
+#endif // _TINYRENDER_GRAPHICS_WINDOW_H_
