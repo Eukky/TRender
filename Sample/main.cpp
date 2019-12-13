@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Graphics/Window.h"
+#include "Maths/maths.h"
 
 using namespace std;
 using namespace TRender;
@@ -11,6 +12,7 @@ int main(){
         cout << "glfw init" << endl;
     }
     Window window = Window("win", 600, 800);
+    Maths::vec2();
     while (!window.closed())
     {
         window.clear();
