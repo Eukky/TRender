@@ -2,14 +2,18 @@ project(TRender)
 
 set(DIR_LIB_GRAPHICS "./Graphics")
 set(DIR_LIB_MATHS "./Maths")
+set(DIR_LIB_COMMON "./Common")
 
 include_directories(DIR_LIB_GRAPHICS)
 include_directories(DIR_LIB_MATHS)
+include_directories(DIR_LIB_COMMON)
 
 set(DIR_LIB_SRCS 
 		${DIR_LIB_GRAPHICS},
-		${DIR_LIB_MATHS}
+		${DIR_LIB_MATHS},
+		${DIR_LIB_COMMON}
 		)
+		
 file (GLOB_RECURSE  DIR_LIB_SRCS *.cpp *.cc *.c *.h *.hpp)
 add_library (RenderCore ${DIR_LIB_SRCS})
 

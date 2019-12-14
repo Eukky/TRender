@@ -12,7 +12,8 @@ int main(){
         cout << "glfw init" << endl;
     }
     Window window = Window("win", 600, 800);
-    Maths::vec2();
+    Maths::vec2 v1 = Maths::vec2(1,2);
+    cout << v1.toString() << endl;
     while (!window.closed())
     {
         window.clear();
