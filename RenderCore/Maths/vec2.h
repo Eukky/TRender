@@ -5,6 +5,10 @@
 
 namespace TRender {
     namespace Maths {
+
+        struct vec3;
+        struct vec4;
+
         struct vec2 {
             float x, y;
             vec2();
