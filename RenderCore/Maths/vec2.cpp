@@ -141,6 +141,10 @@ namespace TRender {
             return x >= other.x && y >= other.y;
         }
 
+        vec2 operator-(const vec2& vector) {
+            return vec2(-vector.x, -vector.y);
+        }
+
         float vec2::distance(const vec2& other) const {
             float a = x - other.x;
             float b = y - other.y;

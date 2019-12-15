@@ -49,6 +49,8 @@ namespace TRender {
             bool operator>(const vec2& other) const;
             bool operator>=(const vec2& other) const;
 
+            friend vec2 operator-(const vec2& vector);
+
             float distance(const vec2& other) const;
             float dot(const vec2& other) const;
             float magnitude() const;

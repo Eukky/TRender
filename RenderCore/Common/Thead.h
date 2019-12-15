@@ -12,4 +12,6 @@
 #include <math.h>
 #include <sstream>
 
+#include "Maths/maths.h"
+
 #endif //_TRANDER_COMMON_THEAD_H_
