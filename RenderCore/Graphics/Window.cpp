@@ -3,7 +3,9 @@
 namespace TRender {
     namespace Graphics {
         Window::Window(const char *title, int width, int height){
-            init();
+            if(!init()){
+                std::cout << "Failed to init Window" << std::endl;
+            }
             m_Title = title;
             m_Width = width;
             m_Height = height;

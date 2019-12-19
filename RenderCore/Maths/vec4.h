@@ -2,12 +2,15 @@
 #define _TRENDER_MATHS_VEC4_H_
 
 #include "Common/Thead.h"
+#include "vec2.h"
+#include "vec3.h"
 
 namespace TRender {
      namespace Maths {
 
         struct vec2;
         struct vec3;
+        struct mat4;
         
         struct vec4 {
             float x, y, z, w;
@@ -27,6 +30,8 @@ namespace TRender {
             vec4& subtract(float value);
             vec4& multiply(float value);
             vec4& divide(float value);
+
+            vec4 multiply(const mat4& transform) const;
 
             friend vec4 operator+(vec4 left, const vec4& right);
             friend vec4 operator-(vec4 left, const vec4& right);
@@ -50,11 +55,16 @@ namespace TRender {
 
             bool operator==(const vec4& other);
             bool operator!=(const vec4& other);
+
+            friend vec4 operator-(const vec4& vector);
+
+            float dot(const vec4& other) const;
+
+            std::string toString() const;
+
+            friend std::ostream& operator<<(std::ostream& stream, const vec4& vector);
         };
     }
 }
-
-   
-
 
 #endif //_TRENDER_MATHS_VEC4_H_

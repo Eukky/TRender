@@ -1,4 +1,6 @@
 #include "vec4.h"
+#include "vec2.h"
+#include "vec3.h"
 
 namespace TRender {
     namespace Maths {
@@ -84,6 +86,15 @@ namespace TRender {
             return *this;
         }
 
+        // vec4 vec4::multiply(const mat4& transform) const {
+        //     return vec4(
+        //         transform.rows[0].x * x + transform.rows[0].y * y + transform.rows[0].z * z + transform.rows[0].w * w,
+        //         transform.rows[1].x * x + transform.rows[1].y * y + transform.rows[1].z * z + transform.rows[1].w * w,
+        //         transform.rows[2].x * x + transform.rows[2].y * y + transform.rows[2].z * z + transform.rows[2].w * w,
+        //         transform.rows[3].x * x + transform.rows[3].y * y + transform.rows[3].z * z + transform.rows[3].w * w
+        //         );
+        // }
+
         vec4 operator+(vec4 left, const vec4& right) {
             return left.add(right);
         }
@@ -154,6 +165,25 @@ namespace TRender {
 
         bool vec4::operator!=(const vec4& other) {
             return !(*this == other);
+        }
+
+        vec4 operator-(const vec4& vector) {
+            return vec4(-vector.x, -vector.y, -vector.z, -vector.w);
+        }
+
+        float vec4::dot(const vec4& other) const {
+		    return x * other.x + y * other.y + z * other.z + w * other.w;
+	    }
+
+        std::string vec4::toString() const {
+            std::stringstream result;
+            result << "vec4: (" << x << ", " << y << ", " << z << ", " << w << ")";
+            return result.str();
+        }
+
+        std::ostream& operator<<(std::ostream& stream, const vec4& vector) {
+            stream << vector.toString();
+            return stream;
         }
 
 

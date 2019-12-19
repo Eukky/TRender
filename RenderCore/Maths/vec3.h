@@ -2,12 +2,14 @@
 #define _TRENDER_MATHS_VEC3_H_
 
 #include "Common/Thead.h"
+#include "vec2.h"
 
 namespace TRender {
     namespace Maths {
 
         struct vec2;
         struct vec4;
+        struct mat4;
         
         struct vec3 {
             float x, y, z;
@@ -37,6 +39,8 @@ namespace TRender {
             vec3& subtract(float value);
             vec3& multiply(float value);
             vec3& divide(float value);
+
+            vec3 multiply(const mat4& transform) const;
 
             friend vec3 operator+(vec3 left, const vec3& right);
             friend vec3 operator-(vec3 left, const vec3& right);

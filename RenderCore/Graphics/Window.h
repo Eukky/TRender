@@ -3,13 +3,14 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "Common/Thead.h"
 
 namespace TRender {
     namespace Graphics {
         class Window {
         public:
             Window(const char *title, int width, int height);
-            // ~Window();
+            ~Window() {}
             void clear() const;
             void update();
             bool closed() const;
