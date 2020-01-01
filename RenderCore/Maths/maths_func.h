@@ -3,7 +3,7 @@
 
 #include <math.h>
 
-#define TR_PI 14159265358
+#define TR_PI 3.14159265358f
 
 namespace TRender {
     namespace Maths
