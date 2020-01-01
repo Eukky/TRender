@@ -1,7 +1,9 @@
 #ifndef _TRENDER_MATHS_VEC2_H_
 #define _TRENDER_MATHS_VEC2_H_
 
-#include "Common/Thead.h"
+#include <string>
+#include <math.h>
+#include <sstream>
 
 
 namespace TRender {

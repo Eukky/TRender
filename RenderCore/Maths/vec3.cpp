@@ -1,5 +1,6 @@
 #include "vec3.h"
 #include "vec2.h"
+#include "vec4.h"
 
 namespace TRender {
     namespace Maths {
@@ -12,6 +13,8 @@ namespace TRender {
 	    vec3::vec3(const vec2& other) : x(other.x), y(other.y), z(0.0f) {}
 
 	    vec3::vec3(float x, float y) : x(x), y(y), z(0.0f) {}
+
+        vec3::vec3(const vec4& other) : x(other.x), y(other.y), z(other.z) {}
 
         vec3 vec3::up() {
             return vec3(0.0f, 1.0f, 0.0f);

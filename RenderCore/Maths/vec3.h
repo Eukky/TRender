@@ -1,8 +1,9 @@
 #ifndef _TRENDER_MATHS_VEC3_H_
 #define _TRENDER_MATHS_VEC3_H_
 
-#include "Common/Thead.h"
-#include "vec2.h"
+#include <string>
+#include <math.h>
+#include <sstream>
 
 namespace TRender {
     namespace Maths {
@@ -19,6 +20,7 @@ namespace TRender {
             vec3(float x, float y, float z);
             vec3(const vec2& other);
             vec3(float x, float y);
+            vec3(const vec4& other);
 
             static vec3 up();
             static vec3 down();

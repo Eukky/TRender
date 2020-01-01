@@ -1,6 +1,6 @@
 #include "Application.h"
 #include <iostream>
-// #include "Common/Thead.h"
+
 namespace TRender {
     namespace Core {
         Application::Application() {

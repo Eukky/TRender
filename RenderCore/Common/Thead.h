@@ -12,7 +12,4 @@
 #include <math.h>
 #include <sstream>
 
-#include "Core/Application.h"
-#include "Core/EntryPoint.h"
-
 #endif //_TRANDER_COMMON_THEAD_H_

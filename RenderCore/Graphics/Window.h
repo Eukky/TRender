@@ -3,7 +3,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Common/Thead.h"
+
 
 namespace TRender {
     namespace Graphics {

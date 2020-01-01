@@ -19,5 +19,7 @@ add_subdirectory(lib/glew EXCLUDE_FROM_ALL)
 
 add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
 
+add_subdirectory(lib/spdlog EXCLUDE_FROM_ALL)
+
 add_subdirectory(Game)
 add_subdirectory(RenderCore)

@@ -1,4 +1,5 @@
 #include "Window.h"
+#include <iostream>
 
 namespace TRender {
     namespace Graphics {
