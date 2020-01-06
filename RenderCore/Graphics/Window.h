@@ -3,7 +3,8 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
+#include "Event/Event.h"
+#include "Event/EventDispatcher.h"
 
 namespace TRender {
     namespace Graphics {
