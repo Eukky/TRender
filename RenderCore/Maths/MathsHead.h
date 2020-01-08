@@ -6,4 +6,6 @@
 #include "vec4.h"
 #include "mat4.h"
 
+#include "maths_func.h"
+
 #endif //_TRENDER_MATHS_MATHS_H_
