@@ -18,8 +18,8 @@ namespace TRender {
             KeyPressed = 9,
             KeyReleased = 10,
             KeyTyped = 11,
-            MousePressed = 12,
-            MouseReleased = 13,
+            MouseButtonPressed = 12,
+            MouseButtonReleased = 13,
             MouseMoved = 14,
             MouseScrolled = 15
         };

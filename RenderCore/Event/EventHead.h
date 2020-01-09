@@ -12,5 +12,7 @@
 #include "MouseButtonEvent.h"
 #include "MouseButtonPressedEvent.h"
 #include "MouseButtonReleasedEvent.h"
+#include "WindowCloseEvent.h"
+#include "WindowResizeEvent.h"
 
 #endif //_TRENDER_EVENT_EVENTHEAD_H_

@@ -23,13 +23,13 @@ namespace TRender {
             }
 
             static EventType getStaticType() { 
-                return EventType::MouseScorlled; 
+                return EventType::MouseScrolled; 
             }
 			virtual EventType getEventType() const override { 
                 return GetStaticType(); 
             }
 			virtual const char* getName() const override { 
-                return "MouseScorlled"; 
+                return "MouseScrolled"; 
             }
 
             virtual int GetCategoryFlags() const override { 
