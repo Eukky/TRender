@@ -2,6 +2,7 @@
 #define _TRENDER_EVENT_EVENT_H_
 
 #include <string>
+#include <sstream>
 
 namespace TRender {
     namespace Event {
@@ -50,7 +51,7 @@ namespace TRender {
 
         std::ostream& operator<<(std::ostream& os, const Event& e) {
             return os << e.toString();
-        }
+        };
     }
 }
 

@@ -1,7 +1,6 @@
 #ifndef _TRENDER_EVENT_KEYTYPEDEVENT_H_
 #define _TRENDER_EVENT_KEYTYPEDEVENT_H_
 
-#include <string>
 #include "KeyEvent.h"
 
 namespace TRender {
@@ -19,7 +18,7 @@ namespace TRender {
                 return EventType::KeyTyped; 
             }
 			virtual EventType getEventType() const override { 
-                return GetStaticType(); 
+                return getStaticType(); 
             }
 			virtual const char* getName() const override { 
                 return "KeyTyped"; 

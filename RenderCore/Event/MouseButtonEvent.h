@@ -1,7 +1,6 @@
 #ifndef _TRENDER_EVENT_MOUSEBUTTONEVENT_H_
 #define _TRENDER_EVENT_MOUSEBUTTONEVENT_H_
 
-#include <string>
 #include "Event.h"
 #include "EventDispatcher.h"
 
@@ -13,7 +12,7 @@ namespace TRender {
                 : m_Button(button) {}
             int getMouseButton() const { return m_Button; }
 
-            virtual int GetCategoryFlags() const override { 
+            virtual int getCategoryFlags() const override { 
                 return (EventCategoryMouse | EventCategoryInput); 
             }
         protected:

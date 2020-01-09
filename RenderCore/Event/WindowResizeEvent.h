@@ -1,7 +1,6 @@
 #ifndef _TRENDER_EVENT_WINDOWRESIZEEVENT_H_
 #define _TRENDER_EVENT_WINDOWRESIZEEVENT_H_
 
-#include <string>
 #include "Event.h"
 #include "EventDispatcher.h"
 
@@ -31,13 +30,13 @@ namespace TRender {
                 return EventType::WindowResize; 
             }
 			virtual EventType getEventType() const override { 
-                return GetStaticType(); 
+                return getStaticType(); 
             }
 			virtual const char* getName() const override { 
                 return "WindowResize"; 
             }
 
-            virtual int GetCategoryFlags() const override { 
+            virtual int getCategoryFlags() const override { 
                 return (EventCategoryMouse | EventCategoryInput); 
             }
         private:

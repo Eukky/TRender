@@ -1,7 +1,6 @@
 #ifndef _TRENDER_EVENT_WINDOWCLOSEEVENT_H_
 #define _TRENDER_EVENT_WINDOWCLOSEEVENT_H_
 
-#include <string>
 #include "Event.h"
 #include "EventDispatcher.h"
 

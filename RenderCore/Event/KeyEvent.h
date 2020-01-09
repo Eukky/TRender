@@ -13,7 +13,7 @@ namespace TRender {
             }
 
             virtual int getCategoryFlags() const override { 
-                return category; 
+                return (EventCategoryKeyboard | EventCategoryInput); 
             }
         protected:
             KeyEvent(int keycode) : m_KeyCode(keycode) {}

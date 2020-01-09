@@ -1,13 +1,12 @@
 #ifndef _TRENDER_EVENT_MOUSESCORLLEDEVENT_H_
 #define _TRENDER_EVENT_MOUSESCORLLEDEVENT_H_
 
-#include <string>
 #include "Event.h"
 #include "EventDispatcher.h"
 
 namespace TRender {
     namespace Event {
-        class MousescrolledEvent : public Event {
+        class MouseScrolledEvent : public Event {
         public:
             MouseScrolledEvent(float xOffset, float yOffset)
 			    : m_XOffset(xOffset), m_YOffset(yOffset) {}
@@ -26,13 +25,13 @@ namespace TRender {
                 return EventType::MouseScrolled; 
             }
 			virtual EventType getEventType() const override { 
-                return GetStaticType(); 
+                return getStaticType(); 
             }
 			virtual const char* getName() const override { 
                 return "MouseScrolled"; 
             }
 
-            virtual int GetCategoryFlags() const override { 
+            virtual int getCategoryFlags() const override { 
                 return (EventCategoryMouse | EventCategoryInput); 
             }
         private:

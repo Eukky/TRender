@@ -1,7 +1,6 @@
 #ifndef _TRENDER_EVENT_MOUSEBUTTONRELEASEDEVENT_H_
 #define _TRENDER_EVENT_MOUSEBUTTONRELEASEDEVENT_H_
 
-#include <string>
 #include "Event.h"
 #include "EventDispatcher.h"
 #include "MouseButtonEvent.h"
@@ -13,7 +12,7 @@ namespace TRender {
             MouseButtonReleasedEvent(int button)
                 : MouseButtonEvent(button) {}
 
-            std::string ToString() const override
+            std::string toString() const override
             {
                 std::stringstream ss;
                 ss << "MouseButtonReleasedEvent: " << m_Button;
@@ -24,7 +23,7 @@ namespace TRender {
                 return EventType::MouseButtonReleased; 
             }
 			virtual EventType getEventType() const override { 
-                return GetStaticType(); 
+                return getStaticType(); 
             }
 			virtual const char* getName() const override { 
                 return "MouseButtonReleased"; 
