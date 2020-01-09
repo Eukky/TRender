@@ -12,6 +12,7 @@ namespace TRender {
             std::string toString() const override {
                 std::stringstream ss;
                 ss << "KeyReleasedEvent: " << m_KeyCode;
+                return ss.str();
             }
 
             static EventType getStaticType() { 

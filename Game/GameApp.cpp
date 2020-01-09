@@ -1,4 +1,4 @@
-#include "Core/EntryPoint.h"
+#include "TRender.h"
 
 using namespace TRender;
 
