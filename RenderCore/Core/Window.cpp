@@ -4,7 +4,7 @@
 #include <iostream>
 
 namespace TRender {
-    namespace Graphics {
+    namespace Core {
 
         static void GLFWErrorCallback(int error, const char* description)
         {

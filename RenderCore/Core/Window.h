@@ -8,7 +8,7 @@
 #include "Event/EventDispatcher.h"
 
 namespace TRender {
-    namespace Graphics {
+    namespace Core {
         class Window {
         public:
             Window(const char *title, int width, int height);
