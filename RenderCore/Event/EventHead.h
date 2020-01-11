@@ -14,5 +14,8 @@
 #include "MouseButtonReleasedEvent.h"
 #include "WindowCloseEvent.h"
 #include "WindowResizeEvent.h"
+#include "AppTickEvent.h"
+#include "AppUpdateEvent.h"
+#include "AppRenderEvent.h"
 
 #endif //_TRENDER_EVENT_EVENTHEAD_H_

@@ -1,24 +1,23 @@
-#ifndef _TRENDER_EVENT_WINDOWCLOSEEVENT_H_
-#define _TRENDER_EVENT_WINDOWCLOSEEVENT_H_
+#ifndef _TRENDER_EVENT_APPUPDATEEVENT_H_
+#define _TRENDER_EVENT_APPUPDATEEVENT_H_
 
 #include "Event.h"
 #include "EventDispatcher.h"
 
 namespace TRender {
     namespace Event{
-        class WindowCloseEvent : public Event
-        {
+        class AppUpdateEvent : public Event {
         public:
-            WindowCloseEvent() = default;
+            AppUpdateEvent() = default;
 
             static EventType getStaticType() { 
-                return EventType::WindowClose; 
+                return EventType::AppUpdate; 
             }
 			virtual EventType getEventType() const override { 
                 return getStaticType(); 
             }
 			virtual const char* getName() const override { 
-                return "WindowClose"; 
+                return "AppUpdate"; 
             }
 
             virtual int getCategoryFlags() const override { 
@@ -28,4 +27,4 @@ namespace TRender {
     }
 }
 
-#endif //_TRENDER_EVENT_WINDOWCLOSEEVENT_H_
+#endif //_TRENDER_EVENT_APPUPDATEEVENT_H_

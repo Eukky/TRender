@@ -37,7 +37,7 @@ namespace TRender {
             }
 
             virtual int getCategoryFlags() const override { 
-                return (EventCategoryMouse | EventCategoryInput); 
+                return (EventCategoryApplication); 
             }
         private:
             unsigned int m_Width, m_Height;
