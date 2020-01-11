@@ -27,6 +27,11 @@ namespace TRender {
             bool initWindow(const char *title, int width, int height);
             static void windowSizeCallback(GLFWwindow* window, int width, int height);
             static void windowCloseCallback(GLFWwindow* window);
+            static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+            static void charCallback(GLFWwindow* window, unsigned int keycode);
+            static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
+            static void scrollCallback(GLFWwindow* window, double xOffset, double yOffset);
+            static void cursorCallback(GLFWwindow* window, double xPos, double yPos);
         private:
             unsigned int m_GLFWWindowCount = 0;
             GLFWwindow *m_Window;
