@@ -26,7 +26,7 @@ namespace TRender {
             void createWindow();
         private:
             bool initGLFW();
-            bool initWindow(const char *title, int width, int height);
+            bool initWindow();
             static void windowSizeCallback(GLFWwindow* window, int width, int height);
             static void windowCloseCallback(GLFWwindow* window);
             static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -39,7 +39,7 @@ namespace TRender {
             GLFWwindow *m_Window;
 
             struct WindowData {
-                std::string title;
+                const char* title;
                 unsigned int width, height;
                 bool isVSync;
 

@@ -12,23 +12,28 @@ namespace TRender {
         }
 
         Window::Window(const char *title, int width, int height){
+            m_WindowData.title = title;
+            m_WindowData.width = width;
+            m_WindowData.height = height;
+            
+        }
+
+        void Window::createWindow() {
             if(m_GLFWWindowCount == 0) {
                 if(!initGLFW()) {
                     TR_CORE_ERROR("Failed to init GLFW");
                 }
             }
   
-            if(!initWindow(title, width, height)) {
+            if(!initWindow()) {
                 TR_CORE_ERROR("Failed to init Window");
             }
         }
 
-        bool Window::initWindow(const char *title, int width, int height) {
-            m_WindowData.title = title;
-            m_WindowData.width = width;
-            m_WindowData.height = height;
-            TR_CORE_INFO("Creating Window {0}, width: {1}, height: {2}", title, width, height);
-            m_Window = glfwCreateWindow(width, height, title, NULL, NULL);
+        bool Window::initWindow() {
+     
+            TR_CORE_INFO("Creating Window {0}, width: {1}, height: {2}", m_WindowData.title, m_WindowData.width, m_WindowData.height);
+            m_Window = glfwCreateWindow(m_WindowData.width, m_WindowData.height, m_WindowData.title, NULL, NULL);
             m_GLFWWindowCount++;
             glfwMakeContextCurrent(m_Window);
             glfwSetWindowUserPointer(m_Window, &m_WindowData);

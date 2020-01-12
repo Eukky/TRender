@@ -49,9 +49,9 @@ namespace TRender {
 
         };
 
-        std::ostream& operator<<(std::ostream& os, const Event& e) {
-            return os << e.toString();
-        };
+        // std::ostream& operator<<(std::ostream& os, const Event& e) {
+        //     return os << e.toString();
+        // };
     }
 }
 
