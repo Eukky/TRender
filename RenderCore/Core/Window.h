@@ -22,6 +22,8 @@ namespace TRender {
             void setVSync(bool enabled);
             bool isVSync();
             int getWindowCount();
+
+            void createWindow();
         private:
             bool initGLFW();
             bool initWindow(const char *title, int width, int height);
