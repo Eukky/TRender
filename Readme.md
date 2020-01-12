@@ -7,9 +7,6 @@ The tutorial from [TheCherno](https://github.com/TheCherno/Hazel) for making a g
 - Start and Run
 
 ```bash
-    cd build
-    cmake ..
-    make
-
-    ./Game/Game
+    chmod +x ./autorun.sh
+    ./autorun.sh
 ```
