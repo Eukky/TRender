@@ -78,6 +78,10 @@ namespace TRender {
             return m_WindowData.height; 
         }
 
+        void Window::setEventCallback(const std::function<void(Event::Event&)>& callback) {
+            m_WindowData.EventCallback = callback;
+        }
+
         void Window::setVSync(bool enabled) {
             if(enabled) {
                 glfwSwapInterval(1);
