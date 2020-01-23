@@ -25,6 +25,13 @@ namespace TRender {
             Event::EventDispatcher dispatcher(e);
             dispatcher.dispatch<Event::WindowCloseEvent>(std::bind(&Application::onWindowClose, this, std::placeholders::_1));
             dispatcher.dispatch<Event::WindowResizeEvent>(std::bind(&Application::onWindowResize, this, std::placeholders::_1));
+
+            for(auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it) {
+                (*it)->onEvent(e);
+                if(e.handled) {
+                    break;
+                }
+            }
         }
 
         void Application::pushLayer(Layer* layer) {
