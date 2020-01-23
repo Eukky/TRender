@@ -5,6 +5,5 @@
 #include "Core/CoreHead.h"
 #include "Event/EventHead.h"
 #include "Graphics/GraphicsHead.h"
-#include "Maths/MathsHead.h"
 
 #endif //_TRENDER_TRENDER_H_

@@ -2,6 +2,7 @@
 #define _TRENDER_CORE_APPLICATION_H_
 
 #include "Window.h"
+#include "LayerStack.h"
 #include "Event/EventHead.h"
 
 namespace TRender {
@@ -13,11 +14,17 @@ namespace TRender {
             void run();
             void onEvent(Event::Event& e);
 
+            void pushLayer(Layer* layer);
+            void pushOverlay(Layer* overlay);
+            void popLayer(Layer* layer);
+            void popOverlay(Layer* overlay);
+
         private:
             bool onWindowClose(Event::WindowCloseEvent& e);
             bool onWindowResize(Event::WindowResizeEvent& e);
         private:
             std::unique_ptr<Window> m_Window;
+            LayerStack m_LayerStack;
             bool m_Running = true;
         };
 

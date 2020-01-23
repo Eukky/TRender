@@ -27,10 +27,33 @@ namespace TRender {
             dispatcher.dispatch<Event::WindowResizeEvent>(std::bind(&Application::onWindowResize, this, std::placeholders::_1));
         }
 
+        void Application::pushLayer(Layer* layer) {
+            m_LayerStack.pushLayer(layer);
+            layer->onAttach();
+        }
+
+        void Application::pushOverlay(Layer* overlay) {
+            m_LayerStack.pushOverlay(overlay);
+            overlay->onAttach();
+        }
+
+        void Application::popLayer(Layer* layer) {
+            m_LayerStack.popLayer(layer);
+            layer->onDetach();
+        }
+
+        void Application::popOverlay(Layer* layer) {
+            m_LayerStack.popOverlay(layer);
+            layer->onDetach();
+        }
+
         void Application::run() {
             while(m_Running){
                 glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
                 glClear(GL_COLOR_BUFFER_BIT);
+                for(Layer* layer : m_LayerStack) {
+                    layer->onUpdate();
+                }
                 m_Window->update();
                 // std::cout << "is running" << std::endl;
             }

@@ -2,6 +2,7 @@
 #define _TRENDER_CORE_COREHEAD_H_
 
 #include "Application.h"
-#include "EntryPoint.h"
+#include "Layer.h"
+#include "LayerStack.h"
 
 #endif //_TRENDER_CORE_COREHEAD_H_
