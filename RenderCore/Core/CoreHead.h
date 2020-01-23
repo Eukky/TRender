@@ -4,5 +4,6 @@
 #include "Application.h"
 #include "Layer.h"
 #include "LayerStack.h"
+#include "Window.h"
 
 #endif //_TRENDER_CORE_COREHEAD_H_
