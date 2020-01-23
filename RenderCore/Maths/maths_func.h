@@ -8,7 +8,7 @@
 namespace TRender {
     namespace Maths
     {
-        float toRadians(float degrees) {
+        static float toRadians(float degrees) {
             return (float)(degrees * TR_PI / 180.0f);
         }   
     }
