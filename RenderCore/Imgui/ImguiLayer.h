@@ -10,6 +10,14 @@ namespace TRender {
         public:
             ImguiLayer() {}
             ~ImguiLayer() {}
+
+            virtual void onAttach();
+            virtual void onDetach();
+
+            void begin();
+            void end();
+        private:
+            float m_Time = 0.0f;
         };
     }
 }
