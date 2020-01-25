@@ -2,17 +2,23 @@
 #define _TRENDER_IMGUI_IMGUILAYER_H_
 
 #include <imgui.h>
-#include "Core/Layer.h"
+#include "imgui_impl_opengl3.h"
+#include "imgui_impl_glfw.h"
+#include "Core/CoreHead.h"
+#include "Event/EventHead.h"
 
 namespace TRender {
     namespace Imgui {
         class ImguiLayer : public Core::Layer {
         public:
-            ImguiLayer() {}
-            ~ImguiLayer() {}
+            ImguiLayer();
+            ~ImguiLayer();
 
             virtual void onAttach();
             virtual void onDetach();
+
+            virtual void onUpdate();
+            virtual void onEvent(Event::Event& event); 
 
             void begin();
             void end();

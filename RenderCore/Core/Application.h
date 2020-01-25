@@ -19,6 +19,9 @@ namespace TRender {
             void popLayer(Layer* layer);
             void popOverlay(Layer* overlay);
 
+            static Application& getInstance();
+            Window& getWindow();
+
         private:
             bool onWindowClose(Event::WindowCloseEvent& e);
             bool onWindowResize(Event::WindowResizeEvent& e);
@@ -26,6 +29,7 @@ namespace TRender {
             std::unique_ptr<Window> m_Window;
             LayerStack m_LayerStack;
             bool m_Running = true;
+            static Application* s_Instance;
         };
 
         Application* createApplication();

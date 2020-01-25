@@ -7,7 +7,10 @@
 
 namespace TRender {
     namespace Core {
+        Application* Application::s_Instance = nullptr;
+        
         Application::Application() {
+            s_Instance = this;
             m_Window = std::unique_ptr<Window>(new Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT));
             //Does not support std::make_unique<T>()
             // m_Window = std::make_unique<Window>(Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT));
@@ -52,6 +55,14 @@ namespace TRender {
         void Application::popOverlay(Layer* layer) {
             m_LayerStack.popOverlay(layer);
             layer->onDetach();
+        }
+
+        Application& Application::getInstance() {
+            return *s_Instance;
+        }
+
+        Window& Application::getWindow() {
+            return *m_Window;
         }
 
         void Application::run() {
