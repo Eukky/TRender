@@ -26,7 +26,7 @@
 #endif
 
 #include "imgui.h"
-#include "imgui_impl_opengl3.h"
+#include "ImguiOpenGLRender.h"
 // #include <GL/gl3w.h>    // This example is using gl3w to access OpenGL functions. You may freely use any other OpenGL loader such as: glew, glad, glLoadGen, etc.
 #include <GL/glew.h>
 
@@ -233,7 +233,8 @@ void ImGui_ImplOpenGL3_DestroyFontsTexture()
 }
 
 bool    ImGui_ImplOpenGL3_CreateDeviceObjects()
-{
+{   
+    glewInit();
     // Backup GL state
     GLint last_texture, last_array_buffer, last_vertex_array;
     glGetIntegerv(GL_TEXTURE_BINDING_2D, &last_texture);

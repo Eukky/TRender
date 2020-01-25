@@ -8,7 +8,7 @@
 #include "imgui_impl_opengl3.h"
 #include <stdio.h>
 #include <GL/gl3w.h>    // This example is using gl3w to access OpenGL functions. You may freely use any other OpenGL loader such as: glew, glad, glLoadGen, etc.
-//#include <glew.h>
+// #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 static void glfw_error_callback(int error, const char* description)
@@ -31,7 +31,7 @@ int main(int, char**)
     GLFWwindow* window = glfwCreateWindow(1280, 720, "ImGui GLFW+OpenGL3 example", NULL, NULL);
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
-    gl3wInit();
+    // gl3wInit();
 
     // Setup Dear ImGui binding
     IMGUI_CHECKVERSION();

@@ -2,8 +2,8 @@
 #define _TRENDER_IMGUI_IMGUILAYER_H_
 
 #include <imgui.h>
-#include "imgui_impl_opengl3.h"
-#include "imgui_impl_glfw.h"
+#include "ImguiOpenGLRender.h"
+#include "ImguiGLFW.h"
 #include "Core/CoreHead.h"
 #include "Event/EventHead.h"
 

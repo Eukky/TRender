@@ -100,6 +100,10 @@ namespace TRender {
             return m_GLFWWindowCount;
         }
 
+        void* Window::getWindow() const{
+            return m_Window;
+        }
+
         void Window::windowSizeCallback(GLFWwindow* window, int width, int height) {
             WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			data.width = width;
