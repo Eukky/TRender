@@ -4,12 +4,6 @@ project(TRender)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories("${PROJECT_SOURCE_DIR}/RenderCore")
-include_directories("${PROJECT_SOURCE_DIR}/lib/glew")
-include_directories("${PROJECT_SOURCE_DIR}/lib/glfw")
-include_directories("${PROJECT_SOURCE_DIR}/lib/glm")
-include_directories("${PROJECT_SOURCE_DIR}/lib/spdlog")
-include_directories("${PROJECT_SOURCE_DIR}/lib/imgui")
-include_directories("${PROJECT_SOURCE_DIR}/lib/nuklear")
 
 if(APPLE)
     set(CMAKE_MACOSX_RPATH 1)
@@ -28,8 +22,6 @@ add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
 add_subdirectory(lib/spdlog EXCLUDE_FROM_ALL)
 
 add_subdirectory(lib/imgui EXCLUDE_FROM_ALL)
-
-add_subdirectory(lib/nuklear EXCLUDE_FROM_ALL)
 
 add_subdirectory(Game)
 add_subdirectory(RenderCore)
