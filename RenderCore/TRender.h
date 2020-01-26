@@ -6,6 +6,6 @@
 #include "Event/EventHead.h"
 #include "Graphics/GraphicsHead.h"
 #include "Maths/MathsHead.h"
-#include "Imgui/ImguiHead.h"
+#include "Gui/GuiHead.h"
 
 #endif //_TRENDER_TRENDER_H_

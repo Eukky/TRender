@@ -13,12 +13,12 @@ list(APPEND IMGUI_PRIVATE_HEADERS
         "${IMGUI_SRC_DIR}/stb_truetype.h"
         )
 
-    list(APPEND IMGUI_SOURCES
+list(APPEND IMGUI_SOURCES
         "${IMGUI_SRC_DIR}/imgui.cpp"
         "${IMGUI_SRC_DIR}/imgui_draw.cpp"
         "${IMGUI_SRC_DIR}/imgui_demo.cpp"
-        ${CRYPTO_PUBLIC_HEADERS}
-        ${CRYPTO_PRIVATE_HEADERS}
+        ${IMGUI_PUBLIC_HEADERS}
+        ${IMGUI_PRIVATE_HEADERS}
         )
 
 list(APPEND IMGUI_PUBLIC_INCLUDE_DIRS

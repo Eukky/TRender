@@ -23,5 +23,7 @@ add_subdirectory(lib/spdlog EXCLUDE_FROM_ALL)
 
 add_subdirectory(lib/imgui EXCLUDE_FROM_ALL)
 
+add_subdirectory(lib/nuklear EXCLUDE_FROM_ALL)
+
 add_subdirectory(Game)
 add_subdirectory(RenderCore)
