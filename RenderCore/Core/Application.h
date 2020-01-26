@@ -1,6 +1,7 @@
 #ifndef _TRENDER_CORE_APPLICATION_H_
 #define _TRENDER_CORE_APPLICATION_H_
 
+#include <memory>
 #include "Window.h"
 #include "LayerStack.h"
 #include "Event/EventHead.h"

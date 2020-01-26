@@ -5,5 +5,6 @@
 #include "Layer.h"
 #include "LayerStack.h"
 #include "Window.h"
+#include "Input.h"
 
 #endif //_TRENDER_CORE_COREHEAD_H_
