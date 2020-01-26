@@ -12,6 +12,7 @@ endif(APPLE)
 option(GLFW_BUILD_DOCS OFF)
 option(GLFW_BUILD_EXAMPLES OFF)
 option(GLFW_BUILD_TESTS OFF)
+option(GLFW_BUILD_DEPS OFF)
 add_subdirectory(lib/glfw EXCLUDE_FROM_ALL)
 
 add_definitions(-DGLEW_STATIC)
@@ -22,8 +23,6 @@ add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
 add_subdirectory(lib/spdlog EXCLUDE_FROM_ALL)
 
 add_subdirectory(lib/imgui EXCLUDE_FROM_ALL)
-
-add_subdirectory(lib/nuklear EXCLUDE_FROM_ALL)
 
 add_subdirectory(Game)
 add_subdirectory(RenderCore)
