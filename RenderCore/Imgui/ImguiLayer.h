@@ -1,5 +1,5 @@
-#ifndef _TRENDER_GUI_IMGUILAYER_H_
-#define _TRENDER_GUI_IMGUILAYER_H_
+#ifndef _TRENDER_IMGUI_IMGUILAYER_H_
+#define _TRENDER_IMGUI_IMGUILAYER_H_
 
 #include <imgui.h>
 #include "ImguiOpenGLRender.h"
@@ -8,7 +8,7 @@
 #include "Event/EventHead.h"
 
 namespace TRender {
-    namespace Gui {
+    namespace Imgui {
         class ImguiLayer : public Core::Layer {
         public:
             ImguiLayer();
@@ -28,4 +28,4 @@ namespace TRender {
     }
 }
 
-#endif //_TRENDER_GUI_IMGUILAYER_H_
+#endif //_TRENDER_IMGUI_IMGUILAYER_H_

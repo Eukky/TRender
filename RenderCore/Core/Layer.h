@@ -14,7 +14,7 @@ namespace TRender {
             virtual void onAttach() {}
             virtual void onDetach() {}
             virtual void onUpdate() {}
-            virtual void onImGuiRender() {}
+            virtual void onImguiRender() {}
             virtual void onEvent(Event::Event& event) {}
 
             const std::string& getName() const {

@@ -23,7 +23,7 @@ namespace TRender {
 
         void Application::onEvent(Event::Event& e) {
             
-            TR_CORE_INFO("{0}", e.toString());
+            // TR_CORE_INFO("{0}", e.toString());
 
             Event::EventDispatcher dispatcher(e);
             dispatcher.dispatch<Event::WindowCloseEvent>(std::bind(&Application::onWindowClose, this, std::placeholders::_1));
