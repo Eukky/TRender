@@ -3,6 +3,8 @@
 namespace TRender {
     namespace Core {
 
+        std::unique_ptr<Input> Input::s_Instance = std::unique_ptr<Input>(new Input());
+
         bool Input::isKeyPressed(int keycode) {
             return s_Instance->isKeyPressedImpl(keycode);
         }

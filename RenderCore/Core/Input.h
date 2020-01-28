@@ -8,8 +8,8 @@ namespace TRender {
     namespace Core {
         class Input {
         public:
-            Input();
-            ~Input();
+            Input() {};
+            ~Input() {};
 
             Input(const Input&) = delete; //删除默认拷贝构造函数
             Input& operator=(const Input&) = delete;
