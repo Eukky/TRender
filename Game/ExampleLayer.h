@@ -8,4 +8,5 @@ public:
 
     void onUpdate() override;
     void onEvent(Event::Event& event) override;
+    virtual void onImguiRender() override;
 };

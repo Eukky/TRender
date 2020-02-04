@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "Common/CommonHead.h"
-
+#include "Imgui/ImguiLayer.h"
 #define WINDOW_TITLE "TRender"
 #define WINDOW_WIDTH 1080
 #define WINDOW_HEIGHT 720
@@ -16,6 +16,9 @@ namespace TRender {
             // m_Window = std::make_unique<Window>(Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT));
             m_Window->createWindow();
             m_Window->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
+
+            m_ImguiLayer = new Imgui::ImguiLayer();
+            pushOverlay(m_ImguiLayer);
         }
         Application::~Application() {
 
@@ -72,6 +75,11 @@ namespace TRender {
                 for(Layer* layer : m_LayerStack) {
                     layer->onUpdate();
                 }
+                m_ImguiLayer->begin();
+                for(Layer* layer : m_LayerStack) {
+                    layer->onImguiRender();
+                }
+                m_ImguiLayer->end();
                 m_Window->update();
                 // std::cout << "is running" << std::endl;
             }

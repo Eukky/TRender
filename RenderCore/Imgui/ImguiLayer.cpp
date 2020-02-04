@@ -1,5 +1,8 @@
 #include "ImguiLayer.h"
 #include "Common/Tlog.h"
+#include "Core/Layer.h"
+#include "Core/Window.h"
+#include "Core/Application.h"
 namespace TRender {
     namespace Imgui {
         ImguiLayer::ImguiLayer() : Layer("ImguiLayer") {
@@ -20,51 +23,73 @@ namespace TRender {
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableSetMousePos;
 
+    		ImGuiStyle& style = ImGui::GetStyle();
+
+            if (io.ConfigFlags)
+            {   
+                style.WindowRounding = 0.0f;
+                style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+            }
+
+            Core::Application& app = Core::Application::getInstance();
+            io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
+            GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
+            ImGui_ImplGlfw_InitForOpenGL(window, true); //true:输入给imgui false:输入给Event
             ImGui_ImplOpenGL3_Init("#version 410");
         }
 
         void ImguiLayer::onDetach() {
-
+            ImGui_ImplOpenGL3_Shutdown();
+            ImGui_ImplGlfw_Shutdown();
+            // ImGui::DestroyContext();
         }
 
-        void ImguiLayer::onUpdate() {
-            glfwPollEvents();
-            ImGuiIO& io = ImGui::GetIO();
-            (void)io;
-//
-            Core::Application& app = Core::Application::getInstance();
-            io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
-//
-//            io.Fonts->AddFontDefault();
-//            //ImFontConfig config;
-//            // config.MergeMode = true;
-//            // config.GlyphMinAdvanceX = 13.0f; // Use if you want to make the icon monospaced
-//            // static const ImWchar icon_ranges[] = { ICON_MIN_FA, ICON_MAX_FA, 0 };
-//            // ImFont* font = io.Fonts->AddFontFromFileTTF("ProggyTiny.ttf", 13.0f, &config, icon_ranges);
-//            // ImGui::GetIO().FontDefault = font;
-            GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
-            ImGui_ImplGlfw_InitForOpenGL(window, false);
+//         void ImguiLayer::onUpdate() {
+//             glfwPollEvents();
+//             ImGuiIO& io = ImGui::GetIO();
+//             (void)io;
+// //
+//             Core::Application& app = Core::Application::getInstance();
+//             io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
+
+//             GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
+//             ImGui_ImplGlfw_InitForOpenGL(window, false);
+//             ImGui_ImplOpenGL3_NewFrame();
+//             ImGui_ImplGlfw_NewFrame();
+//             ImGui::NewFrame();
+
+//             static bool show = true;
+//             ImGui::ShowDemoWindow(&show);
+
+//             ImGui::Render();
+//             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+//         }
+
+        // void ImguiLayer::onEvent(Event::Event& event) {
+            
+        // }
+
+        void ImguiLayer::begin() {
             ImGui_ImplOpenGL3_NewFrame();
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
 
-            static bool show = true;
-            ImGui::ShowDemoWindow(&show);
-
-            ImGui::Render();
-            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        }
-
-        void ImguiLayer::onEvent(Event::Event& event) {
-            
-        }
-
-        void ImguiLayer::begin() {
-
         }
 
         void ImguiLayer::end() {
+            ImGuiIO& io = ImGui::GetIO();
+            Core::Application& app = Core::Application::getInstance();
+            io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
 
+            // Rendering
+            ImGui::Render();
+            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+            if (io.ConfigFlags)
+            {
+                GLFWwindow* backup_current_context = glfwGetCurrentContext();
+                glfwMakeContextCurrent(backup_current_context);
+		    }
         }
     }
 }

@@ -1,5 +1,5 @@
 #include "ExampleLayer.h"
-
+#include <glm/gtc/type_ptr.hpp>
 void ExampleLayer::onUpdate() {
     // TR_CLIENT_INFO("ExampleLayer::onUpdate");
     if(Core::Input::isKeyPressed(TR_KEY_TAB)) {
@@ -13,4 +13,10 @@ void ExampleLayer::onEvent(Event::Event& event) {
         TR_CLIENT_TRACE("{0}", (char)e.getKeyCode());
     }
     // TR_CLIENT_INFO("{0}", event.toString());
+}
+
+void ExampleLayer::onImguiRender() {
+    ImGui::Begin("Settings");
+	ImGui::ShowDemoWindow();
+	ImGui::End();
 }

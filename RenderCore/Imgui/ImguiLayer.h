@@ -4,8 +4,8 @@
 #include <imgui.h>
 #include "ImguiOpenGLRender.h"
 #include "ImguiGLFW.h"
-#include "Core/CoreHead.h"
 #include "Event/EventHead.h"
+#include "Core/Layer.h"
 
 namespace TRender {
     namespace Imgui {
@@ -17,8 +17,8 @@ namespace TRender {
             virtual void onAttach();
             virtual void onDetach();
 
-            virtual void onUpdate();
-            virtual void onEvent(Event::Event& event); 
+            // virtual void onUpdate();
+            // virtual void onEvent(Event::Event& event); 
 
             void begin();
             void end();
