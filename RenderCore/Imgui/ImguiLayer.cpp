@@ -80,11 +80,12 @@ namespace TRender {
             ImGuiIO& io = ImGui::GetIO();
             Core::Application& app = Core::Application::getInstance();
             io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
+            GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
 
             // Rendering
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
+            
             if (io.ConfigFlags)
             {
                 GLFWwindow* backup_current_context = glfwGetCurrentContext();

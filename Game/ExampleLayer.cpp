@@ -16,7 +16,20 @@ void ExampleLayer::onEvent(Event::Event& event) {
 }
 
 void ExampleLayer::onImguiRender() {
-    ImGui::Begin("Settings");
+    ImGui::Begin("begin");
+    ImGui::Text("hello");
+    
+    ImGui::ColorEdit3("clear color", (float*)&clear_color);
 	ImGui::ShowDemoWindow();
+    
 	ImGui::End();
+
+    Core::Application& app = Core::Application::getInstance();
+    GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
+    int display_w, display_h;
+    glfwMakeContextCurrent(window);
+    glfwGetFramebufferSize(window, &display_w, &display_h);
+    glViewport(0, 0, display_w, display_h);
+    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
