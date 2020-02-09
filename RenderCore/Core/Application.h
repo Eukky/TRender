@@ -5,7 +5,7 @@
 #include "Window.h"
 #include "LayerStack.h"
 #include "Event/EventHead.h"
-#include "Imgui/ImguiLayer.h"
+#include "Gui/Imgui/ImguiLayer.h"
 
 namespace TRender {
     namespace Core {
@@ -30,7 +30,7 @@ namespace TRender {
         private:
             std::unique_ptr<Window> m_Window;
             LayerStack m_LayerStack;
-            Imgui::ImguiLayer* m_ImguiLayer;
+            Gui::ImguiLayer* m_ImguiLayer;
             bool m_Running = true;
             static Application* s_Instance;
         };

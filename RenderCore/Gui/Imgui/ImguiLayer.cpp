@@ -4,7 +4,7 @@
 #include "Core/Window.h"
 #include "Core/Application.h"
 namespace TRender {
-    namespace Imgui {
+    namespace Gui {
         ImguiLayer::ImguiLayer() : Layer("ImguiLayer") {
 
         }
