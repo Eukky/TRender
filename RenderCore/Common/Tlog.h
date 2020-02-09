@@ -28,11 +28,14 @@ namespace TRender {
 #define TR_CORE_WARN(...) ::TRender::Common::Tlog::GetCoreLogger()->warn(__VA_ARGS__)
 #define TR_CORE_ERROR(...) ::TRender::Common::Tlog::GetCoreLogger()->error(__VA_ARGS__)
 #define TR_CORE_CRITICAL(...) ::TRender::Common::Tlog::GetCoreLogger()->critical(__VA_ARGS__)
+#define TR_CORE_ASSERT(x, ...) {if(!(x)) { TR_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__);}}
 
 #define TR_CLIENT_TRACE(...) ::TRender::Common::Tlog::GetClientLogger()->trace(__VA_ARGS__)
 #define TR_CLIENT_INFO(...) ::TRender::Common::Tlog::GetClientLogger()->info(__VA_ARGS__)
 #define TR_CLIENT_WARN(...) ::TRender::Common::Tlog::GetClientLogger()->warn(__VA_ARGS__)
 #define TR_CLIENT_ERROR(...) ::TRender::Common::Tlog::GetClientLogger()->error(__VA_ARGS__)
 #define TR_CLIENT_CRITICAL(...) ::TRender::Common::Tlog::GetClientLogger()->critical(__VA_ARGS__)
+#define TR_CLIENT_ASSERT(x, ...) {if(!(x)) { TR_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__);}}
+
 
 #endif //_TRENDER_COMMON_TLOG_H_

@@ -4,6 +4,8 @@
 #include "Graphics/BaseGraphics/BaseContext.h"
 #include <GLFW/glfw3.h>
 
+struct GLFWwindow;
+
 namespace TRender {
     namespace Graphics {
         class GLContext : public BaseContext {

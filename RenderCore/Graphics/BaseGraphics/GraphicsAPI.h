@@ -5,9 +5,17 @@ namespace TRender {
     namespace Graphics {
         class GraphicsAPI {
         public:
+            enum class GraphicsAPIList {
+                NONE = 0,
+                OPENGL = 1,
+                VALKUN = 2
+            };
+
+        public:
+            static GraphicsAPIList getAPI();
 
         private:
-        
+            static GraphicsAPIList m_API;
         };
     }
 }
