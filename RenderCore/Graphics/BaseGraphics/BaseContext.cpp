@@ -2,6 +2,7 @@
 #include "BaseGraphics.h"
 #include "Common/CommonHead.h"
 #include "Graphics/GLGraphics/GLContext.h"
+
 namespace TRender {
     namespace Graphics {
         std::unique_ptr<BaseContext> BaseContext::CreatContext(void* window) {

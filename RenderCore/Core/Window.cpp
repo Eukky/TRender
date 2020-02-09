@@ -2,6 +2,7 @@
 #include "Common/Tlog.h"
 #include "Event/EventHead.h"
 #include <iostream>
+#include "Graphics/GLGraphics/GLContext.h"
 
 namespace TRender {
     namespace Core {
@@ -36,6 +37,11 @@ namespace TRender {
             m_Window = glfwCreateWindow(m_WindowData.width, m_WindowData.height, m_WindowData.title, NULL, NULL);
             m_GLFWWindowCount++;
             glfwMakeContextCurrent(m_Window);
+
+            m_Context = Graphics::BaseContext::CreatContext(m_Window);
+            // m_Context = std::unique_ptr<Graphics::GLContext>(new Graphics::GLContext(m_Window));
+            m_Context->Init();
+
             glfwSetWindowUserPointer(m_Window, &m_WindowData);
             setVSync(true);
 

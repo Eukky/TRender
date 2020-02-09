@@ -7,6 +7,7 @@ namespace TRender {
     namespace Graphics {
         class BaseContext {
         public:
+
             virtual void Init() = 0;
             virtual void SwapBuffers() = 0;
 

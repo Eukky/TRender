@@ -6,6 +6,7 @@
 #include <functional>
 #include "Event/Event.h"
 #include "Event/EventDispatcher.h"
+#include "Graphics/BaseGraphics/BaseContext.h"
 
 namespace TRender {
     namespace Core {
@@ -38,6 +39,7 @@ namespace TRender {
         private:
             unsigned int m_GLFWWindowCount = 0;
             GLFWwindow *m_Window;
+            std::unique_ptr<Graphics::BaseContext> m_Context;
 
             struct WindowData {
                 const char* title;
