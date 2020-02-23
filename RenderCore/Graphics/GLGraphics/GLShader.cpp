@@ -6,11 +6,11 @@ namespace TRender {
 
         }
 
-        void GLShader::bind() {
+        void GLShader::bind() const{
 
         }
 
-        void GLShader::unbind() {
+        void GLShader::unbind() const{
 
         }
     }
