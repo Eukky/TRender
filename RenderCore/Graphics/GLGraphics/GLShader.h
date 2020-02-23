@@ -14,6 +14,8 @@ namespace TRender {
 
             virtual void bind() const override;
             virtual void unbind() const override;
+
+            virtual const std::string& getName() const override;
         };
     }
 }
