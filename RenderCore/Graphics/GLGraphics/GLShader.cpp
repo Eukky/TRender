@@ -33,6 +33,18 @@ namespace TRender {
             m_Name = filepath.substr(left, count);
         }
 
+        GLShader::GLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc) 
+            : m_Name(name) {
+            std::unordered_map<GLenum, std::string> sources;
+            sources[GL_VERTEX_SHADER] = vertexSrc;
+            sources[GL_FRAGMENT_SHADER] = fragmentSrc;
+            compile(sources);
+        }
+
+        GLShader::~GLShader() {
+            glDeleteProgram(m_RenderID);
+        }
+
         std::string GLShader::readFile(const std::string& filepath) {
             std::string result;
             std::ifstream in(filepath, std::ios::in | std::ios::binary);
@@ -77,6 +89,7 @@ namespace TRender {
         }
 
         void GLShader::compile(const std::unordered_map<GLenum, std::string>& shaderSources) {
+            glewInit();
             GLuint program = glCreateProgram();
             TR_CORE_ASSERT(shaderSources.size() <= 2, "We only support 2 shaders for now");
             std::array<GLenum, 2> glShaderIDs;
@@ -199,6 +212,10 @@ namespace TRender {
         void GLShader::setMat4(const std::string& name, const glm::mat4& matrix) {
             GLint location = glGetUniformLocation(m_RenderID, name.c_str());
             glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+        }
+
+        const std::string& GLShader::getName() const {
+            return m_Name;
         }
     }
 }
