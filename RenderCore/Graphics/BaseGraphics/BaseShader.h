@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 #include <glm/glm.hpp>
+#include <GL/glew.h>
 
 namespace TRender {
     namespace Graphics {
@@ -27,7 +28,12 @@ namespace TRender {
             virtual const std::string& getName() const = 0;
 
             static std::shared_ptr<BaseShader> create(const std::string& filepath);
-            static std::shared_ptr<BaseShader> create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc);
+            static std::shared_ptr<BaseShader> create(const std::string& name, 
+                                                      const std::string& vertexSrc, 
+                                                      const std::string& fragmentSrc);
+
+        protected:
+            void checkCompileErrors(GLuint shader, std::string type);
         };
     }
 }

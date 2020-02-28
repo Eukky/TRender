@@ -5,7 +5,7 @@ ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
 
     std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
-            
+
 			layout(location = 0) in vec3 a_Position;
 
 			uniform mat4 u_ViewProjection;
@@ -45,7 +45,7 @@ void ExampleLayer::onUpdate() {
     }
 
     m_Shader->bind();
-    glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
+    glm::vec3 m_SquareColor = { 1.0f, 1.0f, 1.0f };
     m_Shader->setFloat3("u_Color", m_SquareColor);
 }
 

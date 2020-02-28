@@ -41,5 +41,23 @@ namespace TRender {
             }
             return nullptr;
         }
+
+        void BaseShader::checkCompileErrors(GLuint shader, std::string type) {
+            GLint success;
+            GLchar infoLog[1024];
+            if(type != "PROGRAM"){
+                glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+                if(!success){
+                    glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+                    TR_CORE_ERROR("ERROR::SHADER_COMPILATION_ERROR of type: {0}::{1}", type, infoLog);
+                }
+            }else {
+                glGetProgramiv(shader, GL_LINK_STATUS, & success);
+                if(!success){
+                    glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+                    TR_CORE_ERROR("ERROR::SHADER_LINKING_ERROR of type: {0}::{1}", type, infoLog);
+                }
+            }
+        }
     }
 }
