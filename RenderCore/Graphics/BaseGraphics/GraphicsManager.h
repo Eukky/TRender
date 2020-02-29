@@ -5,13 +5,14 @@
 #include <memory>
 #include "VertexArray.h"
 #include "GraphicsAPI.h"
+#include "Common/CommonHead.h"
 
 namespace TRender {
     namespace Graphics {
         class GraphicsManager {
         public:
             static void init();
-            static void setViewPort(int x, int y, int width, int height);
+            static void setViewPort(uint32_t x, uint32_t y, uint32_t width, uint32_t height);
             static void setClearColor(const glm::vec4& color);
             static void clear();
             static void drawIndexed(const std::shared_ptr<VertexArray>& vertexArray);
