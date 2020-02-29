@@ -6,9 +6,9 @@ namespace TRender {
         class GraphicsAPI {
         public:
             enum class GraphicsAPIList {
-                NONE = 0,
-                OPENGL = 1,
-                VALKUN = 2
+                None = 0,
+                Opengl = 1,
+                Valkun = 2
             };
 
         public:
