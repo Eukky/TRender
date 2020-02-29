@@ -4,6 +4,7 @@
 #include "GraphicsAPI.h"
 #include "BaseShader.h"
 #include "VertexArray.h"
+#include <glm/glm.hpp>
 
 namespace TRender {
     namespace Graphics {
@@ -15,6 +16,11 @@ namespace TRender {
 
             static GraphicsAPI::GraphicsAPIList getAPI();
         private:
+            struct SceneData {
+                glm::mat4 viewProjectMatrix;
+            };
+
+            static std::unique_ptr<SceneData> s_SceneData;
         };
     }
 }
