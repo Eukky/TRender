@@ -16,5 +16,6 @@ class ExampleLayer : public Core::Layer {
         Graphics::BaseGraphics m_Render;
         std::shared_ptr<Graphics::BaseShader> m_Shader;
         std::shared_ptr<Graphics::VertexArray> m_SquareVA;
+        std::shared_ptr<Graphics::VertexBuffer> m_SquareVB;
         
 };

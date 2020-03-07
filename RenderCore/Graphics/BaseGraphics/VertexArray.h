@@ -21,7 +21,7 @@ namespace TRender {
             virtual const std::vector<std::shared_ptr<VertexBuffer>>& getVertexBuffer() const = 0;
             virtual const std::shared_ptr<IndexBuffer>& getIndexBuffer() const = 0;
 
-            static std::shared_ptr<VertexArray> creat();
+            static std::shared_ptr<VertexArray> create();
         };
     }
 }

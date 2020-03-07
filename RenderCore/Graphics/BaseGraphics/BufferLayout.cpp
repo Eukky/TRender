@@ -3,6 +3,10 @@
 namespace TRender {
     namespace Graphics {
 
+        BufferLayout::BufferLayout() {
+
+        }
+        
         BufferLayout::BufferLayout(const std::initializer_list<BufferElement>& elements)
             : m_Elements(elements) {
             calculateOffsetAndStride();

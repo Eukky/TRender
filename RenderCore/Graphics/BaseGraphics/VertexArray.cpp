@@ -6,7 +6,7 @@
 
 namespace TRender {
     namespace Graphics {
-        std::shared_ptr<VertexArray> VertexArray::creat() {
+        std::shared_ptr<VertexArray> VertexArray::create() {
             switch(Graphics::GraphicsAPI::getAPI()) {
                 case GraphicsAPI::GraphicsAPIList::None: {
                     TR_CORE_ASSERT(false, "Graphics API NONE is currently not supported");

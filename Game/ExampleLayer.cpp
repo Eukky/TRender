@@ -3,6 +3,20 @@
 
 ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
 
+    m_SquareVA = Graphics::VertexArray::create();
+    float squareVertices[5 * 4] = {
+            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+            0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+            0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+            -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
+    };
+    std::shared_ptr<Graphics::VertexBuffer> squareVB = Graphics::VertexBuffer::create(squareVertices, sizeof(squareVertices));
+    squareVB->setLayout({
+        {Graphics::ShaderDataType::Float3, "a_Position"},
+        {Graphics::ShaderDataType::Float2, "a_TexCoord"},
+    });
+    m_SquareVA->addVertexBuffer(squareVB);
+
     std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 
@@ -62,20 +76,20 @@ void ExampleLayer::onEvent(Event::Event& event) {
 }
 
 void ExampleLayer::onImguiRender() {
-    ImGui::Begin("begin");
-    ImGui::Text("hello");
+    // ImGui::Begin("begin");
+    // ImGui::Text("hello");
     
-    ImGui::ColorEdit3("clear color", (float*)&clear_color);
-	ImGui::ShowDemoWindow();
+    // ImGui::ColorEdit3("clear color", (float*)&clear_color);
+	// ImGui::ShowDemoWindow();
     
-	ImGui::End();
+	// ImGui::End();
 
-    Core::Application& app = Core::Application::getInstance();
-    GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
-    int display_w, display_h;
-    glfwMakeContextCurrent(window);
-    glfwGetFramebufferSize(window, &display_w, &display_h);
-    glViewport(0, 0, display_w, display_h);
-    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-    glClear(GL_COLOR_BUFFER_BIT);
+    // Core::Application& app = Core::Application::getInstance();
+    // GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
+    // int display_w, display_h;
+    // glfwMakeContextCurrent(window);
+    // glfwGetFramebufferSize(window, &display_w, &display_h);
+    // glViewport(0, 0, display_w, display_h);
+    // glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+    // glClear(GL_COLOR_BUFFER_BIT);
 }
