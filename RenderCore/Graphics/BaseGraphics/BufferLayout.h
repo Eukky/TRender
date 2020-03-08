@@ -23,7 +23,8 @@ namespace TRender {
 
         static uint32_t ShaderDataTypeSize(ShaderDataType type) {
             switch (type)
-            {
+            {   
+                case ShaderDataType::None:     return 0;
                 case ShaderDataType::Float:    return 4;
                 case ShaderDataType::Float2:   return 4 * 2;
                 case ShaderDataType::Float3:   return 4 * 3;
@@ -57,6 +58,7 @@ namespace TRender {
             uint32_t getComponentCount() const {
                 switch (type)
                 {
+                    case ShaderDataType::None:    return 0;
                     case ShaderDataType::Float:   return 1;
                     case ShaderDataType::Float2:  return 2;
                     case ShaderDataType::Float3:  return 3;

@@ -1,7 +1,26 @@
 #include "ExampleLayer.h"
 #include <glm/gtc/type_ptr.hpp>
+#include <Graphics/BaseGraphics/GraphicsManager.h>
 
 ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
+
+    m_SquareVA = Graphics::VertexArray::create();
+    float squareVertices[5 * 4] = {
+            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+            0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+            0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+            -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
+    };
+    std::shared_ptr<Graphics::VertexBuffer> squareVB = Graphics::VertexBuffer::create(squareVertices, sizeof(squareVertices));
+    squareVB->setLayout({
+        {Graphics::ShaderDataType::Float3, "a_Position"},
+        {Graphics::ShaderDataType::Float2, "a_TexCoord"},
+    });
+    m_SquareVA->addVertexBuffer(squareVB);
+
+    uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+    std::shared_ptr<Graphics::IndexBuffer> squareIB = Graphics::IndexBuffer::create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+    m_SquareVA->setIndexBuffer(squareIB);
 
     std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -16,7 +35,7 @@ ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
+				gl_Position = u_Transform * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -44,6 +63,9 @@ void ExampleLayer::onUpdate() {
         TR_CLIENT_TRACE("Tap key is pressed");
     }
 
+    Graphics::GraphicsManager::setClearColor({0.1f, 0.1f, 0.1f, 1.0f});
+    Graphics::GraphicsManager::clear();
+
     m_Shader->bind();
     glm::vec3 m_SquareColor = { 1.0f, 1.0f, 1.0f };
     m_Shader->setFloat3("u_Color", m_SquareColor);
@@ -51,6 +73,7 @@ void ExampleLayer::onUpdate() {
     glm::vec3 pos(0.11f, 0.11f, 0.0f);
     glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
     Graphics::BaseGraphics::submit(m_Shader, m_SquareVA, transform);
+    glClearColor(1.0f,1.0f,1.0f,1.0f);
 }
 
 void ExampleLayer::onEvent(Event::Event& event) {
@@ -64,18 +87,18 @@ void ExampleLayer::onEvent(Event::Event& event) {
 void ExampleLayer::onImguiRender() {
     ImGui::Begin("begin");
     ImGui::Text("hello");
-    
-    ImGui::ColorEdit3("clear color", (float*)&clear_color);
-	ImGui::ShowDemoWindow();
-    
-	ImGui::End();
 
-    Core::Application& app = Core::Application::getInstance();
-    GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
-    int display_w, display_h;
-    glfwMakeContextCurrent(window);
-    glfwGetFramebufferSize(window, &display_w, &display_h);
-    glViewport(0, 0, display_w, display_h);
-    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-    glClear(GL_COLOR_BUFFER_BIT);
+    ImGui::ColorEdit3("clear color", (float*)&clear_color);
+	 ImGui::ShowDemoWindow();
+
+	 ImGui::End();
+
+    // Core::Application& app = Core::Application::getInstance();
+    // GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
+    // int display_w, display_h;
+    // glfwMakeContextCurrent(window);
+    // glfwGetFramebufferSize(window, &display_w, &display_h);
+    // glViewport(0, 0, display_w, display_h);
+    // glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+    // glClear(GL_COLOR_BUFFER_BIT);
 }

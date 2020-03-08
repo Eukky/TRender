@@ -6,14 +6,15 @@
 
 namespace TRender {
     namespace Graphics {
-        std::shared_ptr<VertexArray> VertexArray::creat() {
+        std::shared_ptr<VertexArray> VertexArray::create() {
             switch(Graphics::GraphicsAPI::getAPI()) {
                 case GraphicsAPI::GraphicsAPIList::None: {
                     TR_CORE_ASSERT(false, "Graphics API NONE is currently not supported");
                     return nullptr;
                 }
                 case GraphicsAPI::GraphicsAPIList::Opengl: {
-                    return std::unique_ptr<GLVertexArray>(new GLVertexArray());
+                    return std::make_unique<GLVertexArray>();
+                    // return std::unique_ptr<GLVertexArray>(new GLVertexArray());
                 }
                 case GraphicsAPI::GraphicsAPIList::Valkun: {
                     TR_CORE_ASSERT(false, "Graphics API VALKUN is currently not supported");

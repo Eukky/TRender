@@ -17,7 +17,7 @@ namespace TRender {
             static void clear();
             static void drawIndexed(const std::shared_ptr<VertexArray>& vertexArray);
         private:
-            static std::unique_ptr<GraphicsAPI>& s_GraphicsAPI;
+            static std::unique_ptr<GraphicsAPI> s_GraphicsAPI;
         };
     }
 }

@@ -2,6 +2,7 @@
 #define _TRENDER_GRAPHICS_GLVERTEXBUFFER_H_
 
 #include "Graphics/BaseGraphics/VertexBuffer.h"
+#include "Graphics/BaseGraphics/BufferLayout.h"
 
 namespace TRender {
     namespace Graphics {
@@ -15,6 +16,9 @@ namespace TRender {
 
             virtual const BufferLayout& getLayout() const override;
             virtual void setLayout(const BufferLayout& layout) override;
+        private:
+            uint32_t m_RenderID;
+            BufferLayout m_Layout;
         };
     }
 }
