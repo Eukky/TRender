@@ -13,7 +13,8 @@ namespace TRender {
                     return nullptr;
                 }
                 case GraphicsAPI::GraphicsAPIList::Opengl: {
-                    return std::unique_ptr<GLVertexArray>(new GLVertexArray());
+                    return std::make_unique<GLVertexArray>();
+                    // return std::unique_ptr<GLVertexArray>(new GLVertexArray());
                 }
                 case GraphicsAPI::GraphicsAPIList::Valkun: {
                     TR_CORE_ASSERT(false, "Graphics API VALKUN is currently not supported");

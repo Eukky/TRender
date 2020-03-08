@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "Common/CommonHead.h"
 #include "Gui/Imgui/ImguiLayer.h"
+#include "Graphics/BaseGraphics/BaseGraphics.h"
 #define WINDOW_TITLE "TRender"
 #define WINDOW_WIDTH 1080
 #define WINDOW_HEIGHT 720
@@ -16,7 +17,7 @@ namespace TRender {
             // m_Window = std::make_unique<Window>(Window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT));
             m_Window->createWindow();
             m_Window->setEventCallback(std::bind(&Application::onEvent, this, std::placeholders::_1));
-
+            Graphics::BaseGraphics::init();
             m_ImguiLayer = new Gui::ImguiLayer();
             pushOverlay(m_ImguiLayer);
         }

@@ -11,7 +11,8 @@ namespace TRender {
                     return nullptr;
                 }
                 case Graphics::GraphicsAPI::GraphicsAPIList::Opengl: {
-                    return std::shared_ptr<GLVertexBuffer>(new GLVertexBuffer(vertices, size));
+                    return std::make_shared<GLVertexBuffer>(vertices, size);
+                    // return std::shared_ptr<GLVertexBuffer>(new GLVertexBuffer(vertices, size));
                 }
                 case Graphics::GraphicsAPI::GraphicsAPIList::Valkun: {
                     TR_CORE_ASSERT(false, "Graphics API Valkun is currently not supported!");

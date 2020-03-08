@@ -8,7 +8,7 @@ class Game : public Core::Application {
 public:
     Game() {
         pushLayer(new ExampleLayer());
-        pushOverlay(new Gui::ImguiLayer());
+//        pushOverlay(new Gui::ImguiLayer());
     }
     ~Game() {
 

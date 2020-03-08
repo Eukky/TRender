@@ -8,6 +8,7 @@ namespace TRender {
         {
             switch (type)
             {
+                case ShaderDataType::None:     return GL_NONE;
                 case ShaderDataType::Float:    return GL_FLOAT;
                 case ShaderDataType::Float2:   return GL_FLOAT;
                 case ShaderDataType::Float3:   return GL_FLOAT;
@@ -63,7 +64,10 @@ namespace TRender {
         }
 
         void GLVertexArray::setIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) {
+            glBindVertexArray(m_RenderID);
+            indexBuffer->bind();
 
+            m_IndexBuffer = indexBuffer;
         }
 
         const std::vector<std::shared_ptr<VertexBuffer>>& GLVertexArray::getVertexBuffer() const {

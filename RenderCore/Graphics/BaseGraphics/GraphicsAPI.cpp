@@ -5,6 +5,14 @@ namespace TRender {
     namespace Graphics {
         GraphicsAPI::GraphicsAPIList GraphicsAPI::s_API = GraphicsAPI::GraphicsAPIList::Opengl;
 
+        GraphicsAPI::GraphicsAPI() {
+
+        }
+
+        GraphicsAPI::~GraphicsAPI() {
+            
+        }
+
         GraphicsAPI::GraphicsAPIList GraphicsAPI::getAPI() {
             return s_API;
         }
