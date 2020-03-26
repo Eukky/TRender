@@ -26,7 +26,7 @@ namespace TRender {
         void BaseGraphics::submit(const std::shared_ptr<BaseShader> &shader, 
                                   std::shared_ptr<VertexArray> &vertexArray, 
                                   const glm::mat4& transform) {
-//            s_SceneData->viewProjectMatrix = glm::mat4(1.0);
+            s_SceneData->viewProjectMatrix = glm::mat4(1.0);
             shader->bind();
             shader->setMat4("u_ViewProjection", s_SceneData->viewProjectMatrix);
             shader->setMat4("u_Transform", transform);
@@ -34,6 +34,13 @@ namespace TRender {
 
             GraphicsManager::drawIndexed(vertexArray);
 
+        }
+
+        void BaseGraphics::BeginScene(Core::Camera& camera) {
+            s_SceneData->viewProjectMatrix = camera.getViewProjectionMatrix();
+        }
+        void BaseGraphics::EndScene() {
+            
         }
 
 
