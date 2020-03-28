@@ -15,6 +15,7 @@ namespace TRender {
 
         void Camera::setPosition(const glm::vec3& position) {
             m_Position = position;
+            recalculateViewMatrix();
         }
 
         const float Camera::getRotation() const {
@@ -23,6 +24,7 @@ namespace TRender {
 
         void Camera::setRotation(float rotation) {
             m_Rotation = rotation;
+            recalculateViewMatrix();
         }
 
         const glm::mat4& Camera::getViewProjectionMatrix() const {

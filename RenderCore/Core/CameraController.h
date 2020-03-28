@@ -9,7 +9,7 @@ namespace TRender {
     namespace Core {
         class CameraController {
         public: 
-            CameraController(float aspectRatio, bool rotation);
+            CameraController(float aspectRatio, bool rotation = false);
 
             void onUpdate();
             void onEvent(Event::Event& e);
@@ -21,8 +21,8 @@ namespace TRender {
             void setZoomLevel(float zoomLevel);
 
         private:
-            bool onMouseScrolled(Event::MouseScrolledEvent& e);
-            bool onWindowResized(Event::WindowResizeEvent& e);
+            bool onMouseScroll(Event::MouseScrolledEvent& e);
+            bool onWindowResize(Event::WindowResizeEvent& e);
         private:
             float m_AspectRatio;
             float m_ZoomLevel = 1.0f;

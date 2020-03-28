@@ -2,7 +2,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <Graphics/BaseGraphics/GraphicsManager.h>
 
-ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
+ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer"), m_CameraController(1280.0f / 720.0f){
 
     m_SquareVA = Graphics::VertexArray::create();
     float squareVertices[5 * 4] = {
@@ -63,8 +63,12 @@ void ExampleLayer::onUpdate() {
         TR_CLIENT_TRACE("Tap key is pressed");
     }
 
+    m_CameraController.onUpdate();
+
     Graphics::GraphicsManager::setClearColor({0.1f, 0.1f, 0.1f, 1.0f});
     Graphics::GraphicsManager::clear();
+
+    Graphics::BaseGraphics::BeginScene(m_CameraController.getCamera());
 
     m_Shader->bind();
     glm::vec3 m_SquareColor = { 1.0f, 1.0f, 1.0f };
@@ -74,14 +78,17 @@ void ExampleLayer::onUpdate() {
     glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
     Graphics::BaseGraphics::submit(m_Shader, m_SquareVA, transform);
     glClearColor(1.0f,1.0f,1.0f,1.0f);
+
+    Graphics::BaseGraphics::EndScene();
 }
 
 void ExampleLayer::onEvent(Event::Event& event) {
-    if(event.getEventType() == Event::EventType::KeyPressed) {
+     if(event.getEventType() == Event::EventType::KeyPressed) {
         Event::KeyPressedEvent& e = (Event::KeyPressedEvent&)event;
         TR_CLIENT_TRACE("{0}", (char)e.getKeyCode());
-    }
-    // TR_CLIENT_INFO("{0}", event.toString());
+     }
+     m_CameraController.onEvent(event);
+     TR_CLIENT_INFO("{0}", event.toString());
 }
 
 void ExampleLayer::onImguiRender() {

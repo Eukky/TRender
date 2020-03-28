@@ -35,9 +35,9 @@ namespace TRender {
 
             for(auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it) {
                 (*it)->onEvent(e);
-                if(e.handled) {
-                    break;
-                }
+//                if(e.handled) {
+//                    break;
+//                }
             }
         }
 
@@ -78,7 +78,7 @@ namespace TRender {
                 }
                 m_ImguiLayer->begin();
                 for(Layer* layer : m_LayerStack) {
-                    layer->onImguiRender();
+//                    layer->onImguiRender();
                 }
                 m_ImguiLayer->end();
                 m_Window->update();
