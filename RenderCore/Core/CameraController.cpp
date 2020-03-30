@@ -30,10 +30,10 @@ namespace TRender {
 
             if(m_Rotation) {
                 if (Input::isKeyPressed(TR_KEY_Q)) {
-                    m_CameraRotation += m_CameraRotationSpeed;
+                    m_CameraRotation += m_CameraRotationSpeed * 0.05;
                 }
                 if (Input::isKeyPressed(TR_KEY_E)) {
-                    m_CameraRotation -= m_CameraRotationSpeed;
+                    m_CameraRotation -= m_CameraRotationSpeed * 0.05;
                 }
 
                 if (m_CameraRotation > 180.0f) {
@@ -71,9 +71,9 @@ namespace TRender {
         }
 
         bool CameraController::onMouseScroll(Event::MouseScrolledEvent& e) {
-            m_ZoomLevel -= e.getYOffset() * 0.25f;
+            m_ZoomLevel -= e.getYOffset() * 0.25f * 0.005f;
             m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
-            m_Camera.setProjection(m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+            m_Camera.setProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
             return false;
         }
 

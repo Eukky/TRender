@@ -34,7 +34,7 @@ namespace TRender {
             Core::Application& app = Core::Application::getInstance();
             io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
             GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
-            ImGui_ImplGlfw_InitForOpenGL(window, true); //true:输入给imgui false:输入给Event
+            ImGui_ImplGlfw_InitForOpenGL(window, false); //true:输入给imgui false:输入给Event
             ImGui_ImplOpenGL3_Init("#version 410");
         }
 

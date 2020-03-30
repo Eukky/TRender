@@ -2,7 +2,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <Graphics/BaseGraphics/GraphicsManager.h>
 
-ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer"), m_CameraController(1280.0f / 720.0f){
+ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer"), m_CameraController(1280.0f / 720.0f, true){
 
     m_SquareVA = Graphics::VertexArray::create();
     float squareVertices[5 * 4] = {
@@ -71,7 +71,7 @@ void ExampleLayer::onUpdate() {
     Graphics::BaseGraphics::BeginScene(m_CameraController.getCamera());
 
     m_Shader->bind();
-    glm::vec3 m_SquareColor = { 1.0f, 1.0f, 1.0f };
+    glm::vec3 m_SquareColor = { 0.0f, 1.0f, 0.7f };
     m_Shader->setFloat3("u_Color", m_SquareColor);
     glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
     glm::vec3 pos(0.11f, 0.11f, 0.0f);
@@ -92,13 +92,13 @@ void ExampleLayer::onEvent(Event::Event& event) {
 }
 
 void ExampleLayer::onImguiRender() {
-    ImGui::Begin("begin");
-    ImGui::Text("hello");
-
-    ImGui::ColorEdit3("clear color", (float*)&clear_color);
-	 ImGui::ShowDemoWindow();
-
-	 ImGui::End();
+//    ImGui::Begin("begin");
+//    ImGui::Text("hello");
+//
+//    ImGui::ColorEdit3("clear color", (float*)&clear_color);
+//	 ImGui::ShowDemoWindow();
+//
+//	 ImGui::End();
 
     // Core::Application& app = Core::Application::getInstance();
     // GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
