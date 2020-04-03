@@ -36,6 +36,13 @@ namespace TRender {
 
         }
 
+        void BaseGraphics::BeginScene(Core::Camera& camera) {
+            s_SceneData->viewProjectMatrix = camera.getViewProjectionMatrix();
+        }
+        void BaseGraphics::EndScene() {
+            
+        }
+
 
     }
 }

@@ -2,7 +2,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <Graphics/BaseGraphics/GraphicsManager.h>
 
-ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
+ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer"), m_CameraController(1280.0f / 720.0f, true){
 
     m_SquareVA = Graphics::VertexArray::create();
     float squareVertices[5 * 4] = {
@@ -35,7 +35,7 @@ ExampleLayer::ExampleLayer() : Core::Layer("ExampleLayer") {
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_Transform * vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
 			}
 		)";
 
@@ -63,35 +63,42 @@ void ExampleLayer::onUpdate() {
         TR_CLIENT_TRACE("Tap key is pressed");
     }
 
+    m_CameraController.onUpdate();
+
     Graphics::GraphicsManager::setClearColor({0.1f, 0.1f, 0.1f, 1.0f});
     Graphics::GraphicsManager::clear();
 
+    Graphics::BaseGraphics::BeginScene(m_CameraController.getCamera());
+
     m_Shader->bind();
-    glm::vec3 m_SquareColor = { 1.0f, 1.0f, 1.0f };
+    glm::vec3 m_SquareColor = { 0.0f, 1.0f, 0.7f };
     m_Shader->setFloat3("u_Color", m_SquareColor);
     glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
     glm::vec3 pos(0.11f, 0.11f, 0.0f);
     glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
     Graphics::BaseGraphics::submit(m_Shader, m_SquareVA, transform);
     glClearColor(1.0f,1.0f,1.0f,1.0f);
+
+    Graphics::BaseGraphics::EndScene();
 }
 
 void ExampleLayer::onEvent(Event::Event& event) {
-    if(event.getEventType() == Event::EventType::KeyPressed) {
+     if(event.getEventType() == Event::EventType::KeyPressed) {
         Event::KeyPressedEvent& e = (Event::KeyPressedEvent&)event;
         TR_CLIENT_TRACE("{0}", (char)e.getKeyCode());
-    }
-    // TR_CLIENT_INFO("{0}", event.toString());
+     }
+     m_CameraController.onEvent(event);
+     TR_CLIENT_INFO("{0}", event.toString());
 }
 
 void ExampleLayer::onImguiRender() {
-    ImGui::Begin("begin");
-    ImGui::Text("hello");
-
-    ImGui::ColorEdit3("clear color", (float*)&clear_color);
-	 ImGui::ShowDemoWindow();
-
-	 ImGui::End();
+//    ImGui::Begin("begin");
+//    ImGui::Text("hello");
+//
+//    ImGui::ColorEdit3("clear color", (float*)&clear_color);
+//	 ImGui::ShowDemoWindow();
+//
+//	 ImGui::End();
 
     // Core::Application& app = Core::Application::getInstance();
     // GLFWwindow* window = static_cast<GLFWwindow*>(app.getWindow().getWindow());
