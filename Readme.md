@@ -10,3 +10,7 @@ The tutorial from [TheCherno](https://github.com/TheCherno/Hazel) for making a g
     chmod +x ./autorun.sh
     ./autorun.sh
 ```
+
+## TRender Architechure
+
+![TRender Architechure](./res/TRender.png)

@@ -20,7 +20,6 @@ namespace TRender {
             virtual void setRotation(float rotation);
             virtual void setProjection(float left, float right, float bottom, float top);
 
-            
         private:
             void recalculateViewMatrix();
         private:
