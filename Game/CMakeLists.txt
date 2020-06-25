@@ -6,7 +6,6 @@ add_executable(Game ${DIR_SRCS})
 
 target_link_libraries(Game PRIVATE glfw)
 target_link_libraries(Game PRIVATE libglew_static)
-target_link_libraries(Game PRIVATE glm)
 target_link_libraries(Game PRIVATE spdlog)
 target_link_libraries(Game PRIVATE imgui)
 target_link_libraries(Game PRIVATE RenderCore)
