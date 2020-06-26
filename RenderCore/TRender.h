@@ -7,5 +7,6 @@
 #include "Graphics/GraphicsHead.h"
 #include "Maths/MathsHead.h"
 #include "Gui/GuiHead.h"
+#include "Camera/CameraHead.h"
 
 #endif //_TRENDER_TRENDER_H_
