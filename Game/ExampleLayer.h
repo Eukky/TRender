@@ -18,5 +18,6 @@ class ExampleLayer : public Core::Layer {
         std::shared_ptr<Graphics::VertexArray> m_SquareVA;
         std::shared_ptr<Graphics::VertexBuffer> m_SquareVB;
         Core::CameraController m_CameraController;
+        Camera::OrthoCameraController m_OrthoCameraController;
         
 };
