@@ -21,10 +21,10 @@ namespace TRender {
             virtual float getZoomLevel();
             virtual float setZoomLevel();
 
-        private:
+        protected:
             virtual bool onMouseScroll(Event::MouseScrolledEvent& e);
             virtual bool onWindowResize(Event::WindowResizeEvent& e);
-        private:
+        protected:
             float m_AspectRatio;
             float m_ZoomLevel = 1.0f;
             BaseCamera m_Camera;

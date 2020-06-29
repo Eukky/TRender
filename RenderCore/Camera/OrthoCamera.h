@@ -6,7 +6,15 @@
 namespace TRender {
     namespace Camera {
         class OrthoCamera : public BaseCamera {
+            public:
+                OrthoCamera(float left, float right, float bottom, float top);
 
+                virtual void setPosition(const glm::vec3& position);
+                virtual void setRotation(float rotation);
+                virtual void setProjection(float left, float right, float bottom, float top);
+
+            private:
+                void recalculateViewMatrix();
         };
     }
 }
