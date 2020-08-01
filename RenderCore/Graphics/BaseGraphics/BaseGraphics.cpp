@@ -1,6 +1,6 @@
 #include "BaseGraphics.h"
 #include "GraphicsManager.h"
-
+#include "Camera/OrthoCamera.h"
 namespace TRender {
     namespace Graphics {
 
@@ -37,6 +37,10 @@ namespace TRender {
         }
 
         void BaseGraphics::BeginScene(Core::Camera& camera) {
+            s_SceneData->viewProjectMatrix = camera.getViewProjectionMatrix();
+        }
+
+        void BaseGraphics::BeginScene(Camera::OrthoCamera& camera) {
             s_SceneData->viewProjectMatrix = camera.getViewProjectionMatrix();
         }
         void BaseGraphics::EndScene() {

@@ -14,7 +14,7 @@ namespace TRender {
                 virtual void setProjection(float left, float right, float bottom, float top);
 
             private:
-                void recalculateViewMatrix();
+                virtual void recalculateViewMatrix();
         };
     }
 }

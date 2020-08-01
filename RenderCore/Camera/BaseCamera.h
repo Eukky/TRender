@@ -7,7 +7,7 @@ namespace TRender {
     namespace Camera {
         class BaseCamera {
         public:
-            virtual ~BaseCamera();
+            virtual ~BaseCamera() = default;
 
             const glm::vec3& getPosition() const;
             const glm::mat4& getViewProjectionMatrix() const;
@@ -15,12 +15,12 @@ namespace TRender {
             const glm::mat4& getViewMatrix() const;
             const float getRotation() const;
 
-            virtual void setPosition(const glm::vec3& position);
-            virtual void setRotation(float rotation);
-            virtual void setProjection(float left, float right, float bottom, float top);
+            virtual void setPosition(const glm::vec3& position) = 0;
+            virtual void setRotation(float rotation) = 0;
+            virtual void setProjection(float left, float right, float bottom, float top) = 0;
 
         protected:
-            void recalculateViewMatrix();
+            virtual void recalculateViewMatrix() = 0;
         protected:
             glm::mat4 m_ProjectionMatrix;
             glm::mat4 m_ViewMatrix;

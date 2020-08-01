@@ -6,6 +6,8 @@
 #include "VertexArray.h"
 #include "Core/Camera.h"
 #include "Core/CameraController.h"
+#include "Camera/OrthoCamera.h"
+#include "Camera/OrthoCameraController.h"
 #include <glm/glm.hpp>
 
 namespace TRender {
@@ -18,6 +20,7 @@ namespace TRender {
             static void OnWindowResize(uint32_t width, uint32_t height);
 
             static void BeginScene(Core::Camera& camera);
+            static void BeginScene(Camera::OrthoCamera& camera);
             static void EndScene();
             static void submit(const std::shared_ptr<BaseShader> &shader, 
                                std::shared_ptr<VertexArray> &vertexArray, 

@@ -9,25 +9,21 @@ namespace TRender {
     namespace Camera {
         class BaseCameraController {
         public:
-            BaseCameraController();
-            virtual ~BaseCameraController();
+            BaseCameraController() = default;
+            virtual ~BaseCameraController() = default;
 
-            virtual void onUpdate();
-            virtual void onEvent();
+            virtual void onUpdate() = 0;
+            virtual void onEvent(Event::Event& e) = 0;
 
-            BaseCamera& getCamera();
-            const BaseCamera& getCamera() const;
-
-            virtual float getZoomLevel();
-            virtual float setZoomLevel();
+            virtual float getZoomLevel() = 0;
+            virtual void setZoomLevel(float zoomLevel) = 0;
 
         protected:
-            virtual bool onMouseScroll(Event::MouseScrolledEvent& e);
-            virtual bool onWindowResize(Event::WindowResizeEvent& e);
+            virtual bool onMouseScroll(Event::MouseScrolledEvent& e) = 0;
+            virtual bool onWindowResize(Event::WindowResizeEvent& e) = 0;
         protected:
             float m_AspectRatio;
             float m_ZoomLevel = 1.0f;
-            BaseCamera m_Camera;
             bool m_Rotation;
             glm::vec3 m_CameraPosition = { 0.0f, 0.0f, 0.0f };
             float m_CameraRotation = 0.0f; 
