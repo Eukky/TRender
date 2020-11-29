@@ -1,6 +1,8 @@
 #include "BaseCameraController.h"
 
-namespace TRender {
-    namespace Camera {
+namespace TRender
+{
+    namespace Camera
+    {
     }
-}
+} // namespace TRender

@@ -4,17 +4,20 @@
 
 using namespace TRender;
 
-class Game : public Core::Application {
+class Game : public Core::Application
+{
 public:
-    Game() {
+    Game()
+    {
         pushLayer(new ExampleLayer());
-//        pushOverlay(new Gui::ImguiLayer());
+        //        pushOverlay(new Gui::ImguiLayer());
     }
-    ~Game() {
-
+    ~Game()
+    {
     }
 };
 
-Core::Application* Core::createApplication(){
+Core::Application *Core::createApplication()
+{
     return new Game();
 }

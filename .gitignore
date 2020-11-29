@@ -1,4 +1,5 @@
 build/
+build-xcode/
 .vscode/
 .idea/
 .DS_Store
